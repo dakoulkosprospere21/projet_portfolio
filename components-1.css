@@ -1,0 +1,216 @@
+/*
+   components.css — Styles des composants UI :
+   section services, projets, témoignages, formulaire contact
+   IgoTech Portfolio — Génie Logiciel, CEFOD 2026
+  */
+
+/* SERVICES */
+#services {
+  padding: var(--section-pad);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+
+.card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.card:hover {
+  border-color: var(--clr-accent);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 { margin-bottom: 0.6rem; }
+
+.card p {
+  color: var(--clr-muted);
+  font-size: 0.92rem;
+}
+
+/* PROJETS */
+#projets {
+  padding: var(--section-pad);
+  background: var(--clr-surface);
+}
+
+#projets .section-header {
+  max-width: var(--max-w);
+  margin: 0 auto 3rem;
+}
+
+.projets-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.projet-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-dark);
+  transition: transform 0.25s;
+}
+
+.projet-card:hover { transform: translateY(-5px); }
+
+/* Zone image du projet — couleur de fond en attendant une vraie image */
+.projet-img {
+  height: 180px;
+}
+
+.img1 { background: #1a1a2e; }
+.img2 { background: #16213e; }
+.img3 { background: #0f3460; }
+.img4 { background: #533483; }
+.img5 { background: #e94560; }
+.img6 { background: #2b2d42; }
+
+.projet-info {
+  padding: 1.2rem 1.5rem 1.5rem;
+}
+
+.projet-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-accent2);
+  background: rgba(245, 166, 35, 0.1);
+  padding: 0.2rem 0.7rem;
+  border-radius: 50px;
+  margin-bottom: 0.6rem;
+}
+
+.projet-info h3 { margin-bottom: 0.4rem; }
+
+.projet-info p {
+  color: var(--clr-muted);
+  font-size: 0.88rem;
+}
+
+/* TÉMOIGNAGES */
+#temoignages {
+  padding: var(--section-pad);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.temoignages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.temoignage {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-left: 3px solid var(--clr-accent);
+  border-radius: var(--radius);
+  padding: 2rem;
+  font-style: normal;
+}
+
+.temoignage p {
+  color: var(--clr-text);
+  font-size: 0.98rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.65;
+}
+
+.temoignage footer { font-size: 0.85rem; color: var(--clr-muted); }
+
+.temoignage footer strong {
+  color: var(--clr-accent2);
+  display: block;
+  font-size: 0.92rem;
+}
+
+/* CONTACT  */
+#contact {
+  padding: var(--section-pad);
+  background: var(--clr-surface);
+}
+
+#contact .section-header {
+  max-width: var(--max-w);
+  margin: 0 auto 3rem;
+}
+
+.contact-wrapper {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-info p {
+  color: var(--clr-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.contact-info ul { display: flex; flex-direction: column; gap: 0.7rem; }
+.contact-info li { color: var(--clr-muted); font-size: 0.9rem; }
+
+/* Formulaire */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  color: var(--clr-muted);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  background: var(--clr-dark);
+  border: 1px solid var(--clr-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--clr-text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--clr-accent);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}

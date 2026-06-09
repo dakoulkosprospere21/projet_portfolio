@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maquette Wireframe — IgoTech</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; font-size: 13px; }
+
+    /* ---- Blocs wireframe génériques ---- */
+    .bloc  { background: #ddd; border: 1px dashed #aaa; border-radius: 4px; }
+    .bloc-dark { background: #555; }
+
+    /* ---- En-tête de la maquette ---- */
+    .titre-maquette {
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom: 2px solid #ddd;
+    }
+    .titre-maquette small {
+      display: block;
+      font-size: 11px;
+      color: #888;
+      font-weight: normal;
+      margin-top: 4px;
+    }
+
+    /* ---- Annotation de zone ---- */
+    .zone-label {
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #c0392b;
+      padding: 4px 16px;
+      background: #fdecea;
+      border-bottom: 1px solid #f5c6c2;
+    }
+
+    /* ---- NAVBAR ---- */
+    .wf-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      background: #222;
+      border-bottom: 2px dashed #555;
+    }
+    .wf-nav .logo-bloc { width: 80px; height: 22px; background: #666; border-radius: 3px; }
+    .wf-nav .liens { display: flex; gap: 10px; }
+    .wf-nav .liens .l { width: 55px; height: 16px; background: #666; border-radius: 2px; }
+    .wf-nav .liens .cta { background: #888; border: 1px solid #aaa; border-radius: 10px; }
+
+    /* ---- HERO ---- */
+    .wf-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding: 48px 24px 40px;
+      background: #1a1a1a;
+      border-bottom: 2px dashed #444;
+    }
+    .wf-hero .tag    { height: 14px; width: 160px; background: #555; border-radius: 10px; margin-bottom: 12px; }
+    .wf-hero .titre  { height: 54px; background: #666; border-radius: 4px; margin-bottom: 12px; }
+    .wf-hero .sous   { height: 40px; background: #444; border-radius: 4px; margin-bottom: 18px; }
+    .wf-hero .btns   { display: flex; gap: 10px; }
+    .wf-hero .b1     { width: 130px; height: 36px; background: #888; border-radius: 20px; }
+    .wf-hero .b2     { width: 130px; height: 36px; background: #444; border: 1px dashed #888; border-radius: 20px; }
+    .wf-hero .visuel {
+      height: 240px;
+      background: #2a2a2a;
+      border: 1px dashed #555;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 11px;
+    }
+
+    /* ---- SECTION GÉNÉRIQUE ---- */
+    .wf-section {
+      padding: 36px 24px;
+      border-bottom: 2px dashed #ccc;
+      background: #fff;
+    }
+    .wf-section.alt { background: #f0f0f0; }
+
+    /* En-tête de section */
+    .wf-sec-header { text-align: center; margin-bottom: 24px; }
+    .wf-sec-header .lbl   { display: inline-block; height: 13px; width: 100px; background: #ccc; border-radius: 10px; margin-bottom: 8px; }
+    .wf-sec-header .titre { height: 26px; width: 180px; background: #bbb; border-radius: 4px; margin: 0 auto; }
+
+    /* ---- GRILLE SERVICES : 4 cartes ---- */
+    .grille-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .wf-card {
+      background: #e8e8e8;
+      border: 1px dashed #bbb;
+      border-radius: 8px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .wf-card .icone { width: 30px; height: 30px; background: #ccc; border-radius: 4px; }
+    .wf-card .ctit  { height: 15px; background: #bbb; border-radius: 3px; }
+    .wf-card .ctxt  { height: 40px; background: #d0d0d0; border-radius: 3px; }
+
+    /* ---- GRILLE PROJETS : 3 × 2 ---- */
+    .grille-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .wf-projet { background: #e8e8e8; border: 1px dashed #bbb; border-radius: 8px; overflow: hidden; }
+    .wf-projet .img  { height: 110px; background: #ccc; }
+    .wf-projet .info { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .wf-projet .tag  { height: 11px; width: 70px; background: #bbb; border-radius: 10px; }
+    .wf-projet .ttl  { height: 15px; background: #aaa; border-radius: 3px; }
+    .wf-projet .desc { height: 26px; background: #d0d0d0; border-radius: 3px; }
+
+    /* ---- TÉMOIGNAGES : 3 cartes ---- */
+    .wf-temo {
+      background: #e8e8e8;
+      border: 1px dashed #bbb;
+      border-left: 4px solid #999;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .wf-temo .quote { height: 52px; background: #d0d0d0; border-radius: 3px; }
+    .wf-temo .auteur { height: 13px; width: 90px; background: #bbb; border-radius: 3px; }
+
+    /* ---- CONTACT ---- */
+    .wf-contact { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
+    .wf-cinfo   { display: flex; flex-direction: column; gap: 10px; }
+    .wf-cinfo .ligne       { height: 13px; background: #ccc; border-radius: 3px; }
+    .wf-cinfo .ligne.court { width: 55%; }
+    .wf-form    { display: flex; flex-direction: column; gap: 12px; }
+    .wf-champ   { height: 38px; background: #e0e0e0; border: 1px dashed #bbb; border-radius: 6px; }
+    .wf-textarea { height: 88px; background: #e0e0e0; border: 1px dashed #bbb; border-radius: 6px; }
+    .wf-submit  { height: 38px; width: 160px; background: #999; border-radius: 20px; }
+
+    /* ---- FOOTER ---- */
+    .wf-footer {
+      background: #222;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .wf-footer .flogo  { height: 18px; width: 70px; background: #555; border-radius: 3px; }
+    .wf-footer .ftxt   { height: 11px; width: 190px; background: #444; border-radius: 3px; }
+    .wf-footer .fsoc   { display: flex; gap: 8px; }
+    .wf-footer .fsoc span { width: 30px; height: 30px; background: #444; border-radius: 50%; display: inline-block; }
+
+    /* ---- Note de bas de maquette ---- */
+    .note {
+      text-align: center;
+      padding: 14px;
+      background: #fff;
+      font-size: 10px;
+      color: #888;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="titre-maquette">
+    MAQUETTE WIREFRAME — Portfolio IgoTech
+    <small>Génie Logiciel — CEFOD Business School — Juin 2026 | Prof : Ing Betan Gildas Ongbaye</small>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="zone-label">1. NAVBAR — fixe en haut, logo à gauche, liens à droite</div>
+  <div class="wf-nav">
+    <div class="logo-bloc"></div>
+    <div class="liens">
+      <div class="l"></div><div class="l"></div><div class="l"></div>
+      <div class="l cta"></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="zone-label">2. HERO — bannière principale avec slogan et boutons CTA</div>
+  <div class="wf-hero">
+    <div>
+      <div class="tag"></div>
+      <div class="titre"></div>
+      <div class="sous"></div>
+      <div class="btns"><div class="b1"></div><div class="b2"></div></div>
+    </div>
+    <div class="visuel">[ Éléments décoratifs CSS ]</div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="zone-label">3. SERVICES — grille de 4 cartes</div>
+  <div class="wf-section">
+    <div class="wf-sec-header"><div class="lbl"></div><div class="titre"></div></div>
+    <div class="grille-4">
+      <div class="wf-card"><div class="icone"></div><div class="ctit"></div><div class="ctxt"></div></div>
+      <div class="wf-card"><div class="icone"></div><div class="ctit"></div><div class="ctxt"></div></div>
+      <div class="wf-card"><div class="icone"></div><div class="ctit"></div><div class="ctxt"></div></div>
+      <div class="wf-card"><div class="icone"></div><div class="ctit"></div><div class="ctxt"></div></div>
+    </div>
+  </div>
+
+  <!-- PROJETS -->
+  <div class="zone-label">4. PROJETS — grille 3 × 2 avec image, tag, titre, description</div>
+  <div class="wf-section alt">
+    <div class="wf-sec-header"><div class="lbl"></div><div class="titre"></div></div>
+    <div class="grille-3">
+      <div class="wf-projet"><div class="img"></div><div class="info"><div class="tag"></div><div class="ttl"></div><div class="desc"></div></div></div>
+      <div class="wf-projet"><div class="img"></div><div class="info"><div class="tag"></div><div class="ttl"></div><div class="desc"></div></div></div>
+      <div class="wf-projet"><div class="img"></div><div class="info"><div class="tag"></div><div class="ttl"></div><div class="desc"></div></div></div>
+      <div class="wf-projet"><div class="img"></div><div class="info"><div class="tag"></div><div class="ttl"></div><div class="desc"></div></div></div>
+      <div class="wf-projet"><div class="img"></div><div class="info"><div class="tag"></div><div class="ttl"></div><div class="desc"></div></div></div>
+      <div class="wf-projet"><div class="img"></div><div class="info"><div class="tag"></div><div class="ttl"></div><div class="desc"></div></div></div>
+    </div>
+  </div>
+
+  <!-- TÉMOIGNAGES -->
+  <div class="zone-label">5. TÉMOIGNAGES — 3 cartes avec citation et auteur</div>
+  <div class="wf-section">
+    <div class="wf-sec-header"><div class="lbl"></div><div class="titre"></div></div>
+    <div class="grille-3">
+      <div class="wf-temo"><div class="quote"></div><div class="auteur"></div></div>
+      <div class="wf-temo"><div class="quote"></div><div class="auteur"></div></div>
+      <div class="wf-temo"><div class="quote"></div><div class="auteur"></div></div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="zone-label">6. CONTACT — infos à gauche, formulaire (nom, email, message) à droite</div>
+  <div class="wf-section alt">
+    <div class="wf-sec-header"><div class="lbl"></div><div class="titre"></div></div>
+    <div class="wf-contact">
+      <div class="wf-cinfo">
+        <div class="ligne"></div>
+        <div class="ligne court"></div>
+        <div class="ligne court"></div>
+        <div class="ligne court"></div>
+      </div>
+      <div class="wf-form">
+        <div class="wf-champ"></div>
+        <div class="wf-champ"></div>
+        <div class="wf-textarea"></div>
+        <div class="wf-submit"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="zone-label">7. FOOTER — logo, description, icônes réseaux sociaux, copyright</div>
+  <div class="wf-footer">
+    <div class="flogo"></div>
+    <div class="ftxt"></div>
+    <div class="fsoc"><span></span><span></span><span></span><span></span></div>
+    <div class="ftxt"></div>
+  </div>
+
+  <div class="note">
+    Maquette wireframe basse fidélité — Les blocs gris représentent les zones de contenu réelles.
+    Les couleurs et typographies définitives sont définies dans css/style.css et css/components.css.
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+/* 
+   responsive.css — Adaptabilité multi-appareils
+   Breakpoints :
+     768px → tablette
+     480px → smartphone
+   IgoTech Portfolio — Génie Logiciel, CEFOD 2026
+*/
+
+/* TABLETTE (≤ 768px) */
+@media (max-width: 768px) {
+
+  /* Navigation : liens empilés verticalement */
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+
+  /* Hero : centré */
+  #hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 7rem;
+  }
+
+  .hero-btns { justify-content: center; }
+  .hero-sub  { margin: 0 auto 2rem; }
+
+  .hero-visual {
+    opacity: 0.2;
+    right: -150px;
+  }
+
+  /* Grilles : 2 colonnes */
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .temoignages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Contact : colonne unique */
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* SMARTPHONE (≤ 480px)  */
+@media (max-width: 480px) {
+
+  :root {
+    --section-pad: 4rem 1rem;
+  }
+
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.6rem; }
+
+  /* Navigation masquée sur très petit écran */
+  nav { display: none; }
+
+  /* Hero : boutons en colonne */
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Grilles : 1 colonne */
+  .cards-grid,
+  .projets-grid,
+  .temoignages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projet-img { height: 140px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-header">
+      <span class="label">Ce que nous faisons</span>
+      <h2>Nos Services</h2>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card">
+        
+
+        <ol>
+ <div class="card-icon">&#127760;</div>
+        <h3>Création de sites web</h3>
+        <p>Sites vitrines, e-commerce et applications web modernes, rapides et optimisés.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">&#128241;</div>
+        <h3>Gestion des réseaux sociaux</h3>
+        <p>Stratégie de contenu, animation de communauté et reporting des performances.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">&#127912;</div>
+        <h3>Création de contenu visuel</h3>
+        <p>Design graphique, motion design et visuels percutants pour vos supports.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">&#128200;</div>
+        <h3>Marketing digital</h3>
+        <p>Campagnes SEO, SEA et emailing ciblées pour maximiser votre retour sur investissement.</p>
+      </div>
+
+ </ol>
+       
+    </div>
